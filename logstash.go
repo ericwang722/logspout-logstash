@@ -58,7 +58,7 @@ func (a *LogstashAdapter) Stream(logstream chan *router.Message) {
 		if err != nil {
 			log.Println("logstash:", err)
 			transport, found := router.AdapterTransports.Lookup(a.route.AdapterTransport("udp"))
-			if( !found )continue
+			if !found { continue }
 			conn, err := transport.Dial(a.route.Address, a.route.Options) 
  	                if err == nil { 
 		           a.conn = conn
