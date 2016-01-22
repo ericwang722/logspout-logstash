@@ -61,6 +61,7 @@ func (a *LogstashAdapter) Stream(logstream chan *router.Message) {
 			if !found { continue }
 			conn, err := transport.Dial(a.route.Address, a.route.Options) 
  	                if err == nil { 
+ 	                   a.conn.Close()
 		           a.conn = conn
    	                } 
                         continue 
